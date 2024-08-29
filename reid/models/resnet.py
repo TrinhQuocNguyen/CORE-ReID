@@ -52,6 +52,14 @@ class ECAB(nn.Module):
             nn.Conv2d(channel//pow(reduction,2),channel//reduction,1,bias=False), 
             nn.ReLU(),
             nn.Conv2d(channel//reduction,channel,1,bias=False)
+
+            # nn.Conv2d(channel,channel//reduction,1,bias=False), 
+            # nn.ReLU(),
+            # nn.Conv2d(channel//reduction,channel//(reduction*reduction),1,bias=False),
+            # nn.ReLU(),
+            # nn.Conv2d(channel//(reduction*reduction),channel//reduction,1,bias=False),
+            # nn.ReLU(),
+            # nn.Conv2d(channel//reduction,channel,1,bias=False)
         )
         self.sigmoid=nn.Sigmoid()  
     
@@ -65,53 +73,16 @@ class ECAB(nn.Module):
         output=self.sigmoid(max_out+avg_out) 
         return output  
 
-class ECAB_REAL(nn.Module):
-    """Enhanced Channel Attention Block
-
-    Args:
-        nn (Torch Module - Network): Input Module
-    """  
-    def __init__(self,channel,reduction=4):
-        super().__init__()
-        self.maxpool=nn.AdaptiveMaxPool2d(1)
-        self.avgpool=nn.AdaptiveAvgPool2d(1)
-        self.se=nn.Sequential(
-            nn.Conv2d(channel,channel//reduction,1,bias=False), 
-            nn.ReLU(),
-            nn.Conv2d(channel//reduction,channel//pow(reduction,2),1,bias=False), 
-            nn.ReLU(),
-            nn.Conv2d(channel//pow(reduction,2),channel//pow(reduction,3),1,bias=False), 
-            nn.ReLU(),
-            nn.Conv2d(channel//pow(reduction,3),channel//pow(reduction,2),1,bias=False), 
-            nn.ReLU(),
-            nn.Conv2d(channel//pow(reduction,2),channel//reduction,1,bias=False), 
-            nn.ReLU(),
-            nn.Conv2d(channel//reduction,channel,1,bias=False)
-        ).cuda()
-        self.sigmoid=nn.Sigmoid()  
-    
-    def forward(self, x) :
-        # NO ECAB
-        # return self.maxpool(x)
-        max_result=self.maxpool(x) 
-        avg_result=self.avgpool(x)
-        max_out=self.se(max_result)
-        avg_out=self.se(avg_result)
-        output1=self.sigmoid(max_out+avg_out) 
-        
-        output2= max_result+avg_result
-        output=output1*output2
-        return output 
 class SpatialAttention(nn.Module):
     """Spatial Attention from CBAM
 
     Args:
         nn (Torch Module - Network): Input Module
     """    
-    def __init__(self, kernel_size=7):
+    def __init__(self, kernel_size=5):
         super().__init__()
 
-        self.conv1 = nn.Conv2d(2, 1, kernel_size, padding=kernel_size//2, bias=False).cuda()
+        self.conv1 = nn.Conv2d(2, 1, kernel_size, padding=kernel_size//2, bias=False)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
@@ -142,16 +113,6 @@ class Fuse(nn.Module):
         init.constant_(self.bn_3.bias, 0)
 
     def forward(self, x, ca_upper, ca_low) :
-        # Add ECAB to global features
-        ca_global = ECAB_REAL(2048, reduction=4)
-        sa_global = SpatialAttention()
-        
-        channel_embed_global = ca_global(x)
-        x = x*channel_embed_global
-        spacial_embed_global = sa_global(x)
-        x = x*spacial_embed_global
-        
-        
   
         x_embed_upper = x*ca_upper  
         x_embed_low = x*ca_low
@@ -261,11 +222,9 @@ class ResNet(nn.Module):
             self.reset_params()
         
 
-    def forward(self, x, return_featuremaps=False):
+    def forward(self, x):
 
         x = self.base(x)  # [bs, 2048, 16, 8]
-        if return_featuremaps ==True:
-            return x
 
         if self.num_split > 1:
             h = x.size(2)
@@ -373,13 +332,7 @@ class Encoder(nn.Module):
         self.model_ema = model_ema
         self.fuse_net = Fuse().cuda()
 
-    def forward(self,input, return_featuremaps=False):
-        if return_featuremaps==True:
-            x = self.model(input, return_featuremaps) 
-            x_ema = self.model_ema(input, return_featuremaps)
-            
-            return x_ema, x
-            
+    def forward(self,input):
         x1, prob, channel_embed_upper_1, channel_embed_low_1,  x = self.model(input) 
         x1_ema, prob_ema,  channel_embed_upper_1_ema, channel_embed_low_1_ema, x_ema = self.model_ema(input)
         # Teacher model will encode the global features -> only Teacher model will be used for inference
