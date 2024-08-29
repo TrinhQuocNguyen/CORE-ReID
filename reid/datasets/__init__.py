@@ -5,7 +5,6 @@ from .dukemtmc import DukeMTMC
 from .market1501 import Market1501
 from .msmt17 import MSMT17
 from .cuhk03 import CUHK03
-from .cuhk03np import CUHK03NP
 
 
 __factory = {
@@ -13,7 +12,6 @@ __factory = {
     'duke': DukeMTMC,
     'msmt17': MSMT17,
     'cuhk03': CUHK03,
-    'cuhk03np': CUHK03NP,
 }
 
 
