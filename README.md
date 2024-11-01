@@ -1,9 +1,15 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-cuhk03-to-1)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-cuhk03-to-1?p=core-reid-comprehensive-optimization-and)
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-cuhk03-to)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-cuhk03-to?p=core-reid-comprehensive-optimization-and)
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-duke-to)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-duke-to?p=core-reid-comprehensive-optimization-and)
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-duke-to-1)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-duke-to-1?p=core-reid-comprehensive-optimization-and)
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-market-to-6)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-market-to-6?p=core-reid-comprehensive-optimization-and)
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-market-to)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-market-to?p=core-reid-comprehensive-optimization-and)
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-market-to-1)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-market-to-1?p=core-reid-comprehensive-optimization-and)
 
 
