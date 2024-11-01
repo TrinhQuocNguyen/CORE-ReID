@@ -1,3 +1,4 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-cuhk03-to-1)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-cuhk03-to-1?p=core-reid-comprehensive-optimization-and)
 
 # CORE-ReID
 CORE-ReID: Comprehensive Optimization and Refinement through Ensemble fusion in Domain Adaptation for person re-identification
