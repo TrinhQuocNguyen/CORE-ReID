@@ -17,6 +17,8 @@
 CORE-ReID: Comprehensive Optimization and Refinement through Ensemble fusion in Domain Adaptation for person re-identification
 
 Our project page: https://trinhquocnguyen.github.io/core-reid-homepage/
+**[2024/12/01: Good News!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
+    * We have developed the second version of CORE-ReID, the performance is much better, please stay in tune.
 
 ## TODO
 - [ ] Explain step by step how to run the source code with tutorial videos
@@ -26,7 +28,7 @@ Our project page: https://trinhquocnguyen.github.io/core-reid-homepage/
 - [X] Initialize the source code
 
 ## Updates
-- **[2024/12/01: Source code is released!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
+- **[2024/12/01: Good News!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
     * We have developed the second version of CORE-ReID, the performance is much better, please stay in tune.
 - **[2024/07/14: Source code is released!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
     * The first version of source code has been initialized.
