@@ -26,7 +26,9 @@ Our project page: https://trinhquocnguyen.github.io/core-reid-homepage/
 - [X] Initialize the source code
 
 ## Updates
-- **[2023/07/14: Source code is released!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
+- **[2024/12/01: Source code is released!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
+    * We have developed the second version of CORE-ReID, the performance is much better, please stay in tune.
+- **[2024/07/14: Source code is released!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)
     * The first version of source code has been initialized.
 - **[2024/06/03: CORE-ReID is published by MDPI!]**
     * The paper of CORE-ReID is publised by MDPI: https://www.mdpi.com/2674-113X/3/2/12 
