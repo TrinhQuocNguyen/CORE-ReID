@@ -21,13 +21,15 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/core-reid-comprehensive-optimization-and/unsupervised-domain-adaptation-on-market-to-1)](https://paperswithcode.com/sota/unsupervised-domain-adaptation-on-market-to-1?p=core-reid-comprehensive-optimization-and)
 
 # CORE-ReID
-CORE-ReID: Comprehensive Optimization and Refinement through Ensemble fusion in Domain Adaptation for person re-identification
+**CORE-ReID: Comprehensive Optimization and Refinement through Ensemble fusion in Domain Adaptation for person re-identification**
+
+<img src="resource\people_dance.gif" width="500" />
 
 Our project page: https://trinhquocnguyen.github.io/core-reid-homepage/
 
-**[2024/12/01: Good News!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)    
+**[2025/04/30: Good News!]** ![new](https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png)    
 
-* We have developed the second version of CORE-ReID, the performance is much better, please stay in tune.
+* We have developed the second version of CORE-ReID, the performance is much better, check it [here](https://github.com/TrinhQuocNguyen/CORE-ReID-V2) <3.
 
 ## TODO
 - [X] Explain step by step how to run the source code with tutorial videos
@@ -107,7 +109,7 @@ CUDA_VISIBLE_DEVICES=1,2 python model_test.py -dt market \
 ### 6. Tutorials
 Watch the Tutorial (From CORE-ReID V2):
 
-[![Watch the Tutorial](https://i9.ytimg.com/vi_webp/bVyPntMedLQ/mqdefault.webp?v=68075df2&sqp=CKihocAG&rs=AOn4CLBtgv7JFGaU48uu4gEQXQ81AdYUeQ)](https://youtu.be/bVyPntMedLQ)
+[![Watch the Tutorial](resource/youtube.png)](https://youtu.be/bVyPntMedLQ)
 
 ## Citations
 Please cite our paper if you find it useful
