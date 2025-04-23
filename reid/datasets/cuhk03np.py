@@ -9,7 +9,12 @@ from ..utils.data import BaseImageDataset
 from ..utils.osutils import mkdir_if_missing
 from ..utils.serialization import write_json
 import json
+import yaml
 
+# Load the global config
+with open("global_config.yaml", "r") as file:
+    global_config = yaml.safe_load(file)
+    
 class CUHK03NP(BaseImageDataset):
     """
     CUHK03NP
@@ -20,7 +25,7 @@ class CUHK03NP(BaseImageDataset):
     # identities: 1466 (+1 for background)
     # images: 7368 (train) + 1400 (query) + 5328 (gallery)
     """
-    dataset_dir = '/home/ccvn/Workspace/trinh/data/reid/cuhk03np'
+    dataset_dir = global_config["data_path"] + 'cuhk03np'
 
     def __init__(self, root, verbose=True, **kwargs):
         super(CUHK03NP, self).__init__()

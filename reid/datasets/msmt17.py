@@ -9,7 +9,11 @@ import zipfile
 
 from ..utils.osutils import mkdir_if_missing
 from ..utils.serialization import write_json
+import yaml
 
+# Load the global config
+with open("global_config.yaml", "r") as file:
+    global_config = yaml.safe_load(file)
 
 def _pluck_msmt(list_file, subdir, pattern=re.compile(r'([-\d]+)_([-\d]+)_([-\d]+)')):
     with open(list_file, 'r') as f:
@@ -27,7 +31,7 @@ def _pluck_msmt(list_file, subdir, pattern=re.compile(r'([-\d]+)_([-\d]+)_([-\d]
 
 class Dataset_MSMT(object):
     def __init__(self, root):
-        self.root = "/home/ccvn/Workspace/trinh/data/reid/"
+        self.root = global_config["data_path"]
         self.train, self.val, self.trainval = [], [], []
         self.query, self.gallery = [], []
         self.num_train_ids, self.num_val_ids, self.num_trainval_ids = 0, 0, 0
@@ -43,6 +47,10 @@ class Dataset_MSMT(object):
         self.train = self.train + self.val
         self.query, query_pids = _pluck_msmt(osp.join(exdir, 'list_query.txt'), 'test')
         self.gallery, gallery_pids = _pluck_msmt(osp.join(exdir, 'list_gallery.txt'), 'test')
+        
+        # For saving the features
+        # self.query, query_pids = _pluck_msmt(osp.join(exdir, 'list_query_mini.txt'), 'test')
+        # self.gallery, gallery_pids = _pluck_msmt(osp.join(exdir, 'list_query_mini.txt'), 'test')
         self.num_train_pids = len(list(set(train_pids).union(set(val_pids))))
 
         if verbose:

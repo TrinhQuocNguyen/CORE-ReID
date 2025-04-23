@@ -8,7 +8,11 @@ import zipfile
 from ..utils.data import BaseImageDataset
 from ..utils.osutils import mkdir_if_missing
 from ..utils.serialization import write_json
+import yaml
 
+# Load the global config
+with open("global_config.yaml", "r") as file:
+    global_config = yaml.safe_load(file)
 
 class DukeMTMC(BaseImageDataset):
     """
@@ -23,7 +27,7 @@ class DukeMTMC(BaseImageDataset):
     # images:16522 (train) + 2228 (query) + 17661 (gallery)
     # cameras: 8
     """
-    dataset_dir = '/home/ccvn/Workspace/trinh/data/reid/DukeMTMC-reID'
+    dataset_dir = global_config["data_path"] + 'DukeMTMC-reID'
 
     def __init__(self, root, verbose=True, **kwargs):
         super(DukeMTMC, self).__init__()

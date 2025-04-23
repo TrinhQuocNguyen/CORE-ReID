@@ -30,10 +30,9 @@ Our project page: https://trinhquocnguyen.github.io/core-reid-homepage/
 * We have developed the second version of CORE-ReID, the performance is much better, please stay in tune.
 
 ## TODO
-- [ ] Explain step by step how to run the source code with tutorial videos
-- [ ] Update Readme.md file
-- [ ] Provide the pretrained models
-- [ ] Fix the absolute path
+- [X] Explain step by step how to run the source code with tutorial videos
+- [X] Update Readme.md file
+- [X] Fix the absolute path
 - [X] Initialize the source code
 
 ## Updates
@@ -77,15 +76,52 @@ This codebase has been developed with python version 3.8, PyTorch version 1.8.1,
 
 ## Training 
 ### 1. Train CycleGAN models
-Comming...
+- For Person ReID, Follow the guidance from: [camstyle-for-person-reid](https://github.com/TrinhQuocNguyen/camstyle-for-person-reid)
 ### 2. Generate the training datataset
-Comming...
+- For Person ReID, Follow the guidance from: [camstyle-for-person-reid](https://github.com/TrinhQuocNguyen/camstyle-for-person-reid)
 ### 3. Train the ReID model - Step 1: Pretraining on Source Domain
-Comming...
+For example, fine-tune DUKE => MARKET1501 with Resnet101 architecture:
+```
+CUDA_VISIBLE_DEVICES=1,2 python source_pretrain.py -ds duke -dt market \
+                  --data-dir /home/ccvn/Workspace/trinh/data/reid \ 
+                  --logs-dir logs/duke2market_101_all_merge_ECAB_Z/source_pretraining -b 128 \
+                  --arch resnet101_source
+```
 ### 4. Train the ReID model - Step 2: Fine-Tuning on Target Domain
-Comming...
+For example, fine-tune CUKH03 => MARKET1501 with Resnet50 architecture:
+```
+CUDA_VISIBLE_DEVICES=1,2 python target_train.py -dt market \
+                 --data-dir /home/ccvn/Workspace/trinh/data/reid \
+                 --logs-dir logs/duke2market_101_all_merge_ECAB_Z/target_fine_tuning_ECAB_BMFN_Local_Loss \
+                 --initial-weights logs/duke2market_101_all_merge_ECAB_Z/source_pretraining -b 128 \
+                 --num-clusters 700 --arch resnet101
+```
 ### 5. Train the ReID model - Step 3: Evaluation on Target Domain
-Comming...
+For example, test CUKH03 => MARKET1501 with Resnet50 architecture:
+```
+CUDA_VISIBLE_DEVICES=1,2 python model_test.py -dt market \
+                --data-dir /home/ccvn/Workspace/trinh/data/reid \
+                --resume logs/duke2market_101_all_merge_ECAB_Z/target_fine_tuning_ECAB_BMFN/model_best.pth.tar \
+                --num-classes 700 --arch resnet101
+```
+### 6. Tutorials
+Watch the Tutorial (From CORE-ReID V2):
+
+[![Watch the Tutorial](https://i9.ytimg.com/vi_webp/bVyPntMedLQ/mqdefault.webp?v=68075df2&sqp=CKihocAG&rs=AOn4CLBtgv7JFGaU48uu4gEQXQ81AdYUeQ)](https://youtu.be/bVyPntMedLQ)
+
+## Citations
+Please cite our paper if you find it useful
+```
+@article{,
+  author    = {Nguyen TQ, Prima ODA, Hotta K},
+  title     = {CORE-ReID: Comprehensive Optimization and Refinement through Ensemble Fusion in Domain Adaptation for Person Re-Identification.},
+  journal   = {Software},
+  doi       = {https://doi.org/10.3390/software3020012},
+  volume    = {3},
+  pages     = {227-249},
+  year      = {2024},
+}
+```
 
 ## Acknowledgement
 Thank you for great works below:
