@@ -90,7 +90,7 @@ CUDA_VISIBLE_DEVICES=1,2 python source_pretrain.py -ds duke -dt market \
                   --arch resnet101_source
 ```
 ### 4. Train the ReID model - Step 2: Fine-Tuning on Target Domain
-For example, fine-tune CUKH03 => MARKET1501 with Resnet50 architecture:
+For example, fine-tune DUKE => MARKET1501 with Resnet101 architecture:
 ```
 CUDA_VISIBLE_DEVICES=1,2 python target_train.py -dt market \
                  --data-dir /home/ccvn/Workspace/trinh/data/reid \
@@ -99,7 +99,7 @@ CUDA_VISIBLE_DEVICES=1,2 python target_train.py -dt market \
                  --num-clusters 700 --arch resnet101
 ```
 ### 5. Train the ReID model - Step 3: Evaluation on Target Domain
-For example, test CUKH03 => MARKET1501 with Resnet50 architecture:
+For example, test DUKE => MARKET1501 with Resnet101 architecture:
 ```
 CUDA_VISIBLE_DEVICES=1,2 python model_test.py -dt market \
                 --data-dir /home/ccvn/Workspace/trinh/data/reid \
