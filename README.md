@@ -83,7 +83,7 @@ This codebase has been developed with python version 3.8, PyTorch version 1.8.1,
 ### 2. Generate the training datataset
 - For Person ReID, Follow the guidance from: [camstyle-for-person-reid](https://github.com/TrinhQuocNguyen/camstyle-for-person-reid)
 ### 3. Train the ReID model - Step 1: Pretraining on Source Domain
-For example, fine-tune DUKE => MARKET1501 with Resnet101 architecture:
+For example, train DUKE => MARKET1501 with Resnet101 architecture:
 ```
 CUDA_VISIBLE_DEVICES=1,2 python source_pretrain.py -ds duke -dt market \
                   --data-dir /home/ccvn/Workspace/trinh/data/reid \ 
